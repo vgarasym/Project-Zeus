@@ -1,17 +1,19 @@
-import { View, Text, Image, TouchableOpacity, Alert } from 'react-native';
-import { useState } from 'react';
-import * as ImagePicker from 'expo-image-picker';
-import { useNavigation } from 'expo-router';
+import { View, Text, Image, TouchableOpacity, Alert } from "react-native";
+import { useState } from "react";
+import * as ImagePicker from "expo-image-picker";
+import { useNavigation } from "expo-router";
 
 export default function Profile() {
-  const [profileImage, setProfileImage] = useState('https://via.placeholder.com/100');
+  const [profileImage, setProfileImage] = useState(
+    "https://via.placeholder.com/100"
+  );
   const navigation = useNavigation();
 
   const pickImage = async () => {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-    
-    if (status !== 'granted') {
-      Alert.alert('Sorry, we need camera roll permissions to make this work!');
+
+    if (status !== "granted") {
+      Alert.alert("Sorry, we need camera roll permissions to make this work!");
       return;
     }
 
@@ -29,7 +31,7 @@ export default function Profile() {
         tabBarIcon: ({ color, size }) => (
           <Image
             source={{ uri: result.assets[0].uri }}
-            style={{ width: size, height: size, borderRadius: size/2 }}
+            style={{ width: size, height: size, borderRadius: size / 2 }}
           />
         ),
       });
@@ -37,7 +39,7 @@ export default function Profile() {
   };
 
   return (
-    <View className="flex-1 bg-white">
+    <View className="flex-1 bg-[#F5F5F5]">
       <View className="items-center p-5 border-b border-gray-200">
         <TouchableOpacity onPress={pickImage}>
           <Image

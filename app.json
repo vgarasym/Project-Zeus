@@ -44,6 +44,12 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "fonts": [
+      {
+        "SF-Pro-Text-Regular": "./assets/fonts/SF-Pro-Text-Regular.otf",
+        "SF-Pro-Text-Medium": "./assets/fonts/SF-Pro-Text-Medium.otf"
+      }
+    ]
   }
 }

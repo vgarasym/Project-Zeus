@@ -1,50 +1,72 @@
-import { Tabs } from 'expo-router';
-import { FontAwesome } from '@expo/vector-icons';
+import { Tabs } from "expo-router";
+import {
+  FontAwesome,
+  FontAwesome5,
+  MaterialCommunityIcons,
+} from "@expo/vector-icons";
+import { Image, View } from "react-native";
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: '#007AFF',
-        tabBarInactiveTintColor: '#8E8E93',
+        tabBarActiveTintColor: "#003A63",
+        tabBarInactiveTintColor: "#8E8E93",
         tabBarStyle: {
-          backgroundColor: '#FFFFFF',
+          backgroundColor: "#FFFFFF",
           borderTopWidth: 1,
-          borderTopColor: '#E5E5EA',
+          borderTopColor: "#E5E5EA",
         },
         headerShown: true,
-      }}>
+        headerStyle: {
+          backgroundColor: "#003A63",
+        },
+        headerTintColor: "#FFFFFF",
+        headerTitle: () => (
+          <View className="items-center">
+            <Image
+              source={require("../../assets/logos/swipeatsheaderlogo.png")}
+              className="w-32 h-8 resize-contain my-4 mb-6"
+            />
+          </View>
+        ),
+      }}
+    >
       <Tabs.Screen
         name="home"
         options={{
-          title: 'Home',
+          title: "Home",
           tabBarIcon: ({ color }) => (
             <FontAwesome name="home" size={24} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="communities"
+        name="friends"
         options={{
-          title: 'Communities',
+          title: "Friends",
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="users" size={24} color={color} />
+            <FontAwesome5 name="user-friends" size={24} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="friends"
+        name="communities"
         options={{
-          title: 'Friends',
+          title: "Communities",
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="user-friends" size={24} color={color} />
+            <MaterialCommunityIcons
+              name="message-reply"
+              size={24}
+              color={color}
+            />
           ),
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
-          title: 'Profile',
+          title: "Profile",
           tabBarIcon: ({ color }) => (
             <FontAwesome name="user" size={24} color={color} />
           ),
